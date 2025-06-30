@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pengingat Waktu Sholat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: #fff;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .jadwal {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 12px;
+      display: inline-block;
+    }
+
+    h2 {
+      color: #00ffcc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🕌 Pengingat Waktu Sholat</h1>
+  <div class="jadwal">
+    <h2>Jadwal (Contoh)</h2>
+    <p>Subuh: 04:30</p>
+    <p>Dzuhur: 12:00</p>
+    <p>Ashar: 15:30</p>
+    <p>Maghrib: 18:00</p>
+    <p>Isya: 19:15</p>
+  </div>
+
+  <h3 id="now">Sekarang: --:--</h3>
+  <h2 id="peringatan">Menunggu waktu sholat...</h2>
+
+  <!-- Suara Adzan -->
+  <audio id="adzan" src="https://archive.org/download/AdzanSubuhIndonesia/Adzan%20Subuh%20Indonesia.mp3"></audio>
+
+  <script>
+    // Jadwal manual (bisa disesuaikan)
+    const jadwal = {
+      "Subuh": "04:30",
+      "Dzuhur": "12:00",
+      "Ashar": "15:30",
+      "Maghrib": "18:00",
+      "Isya": "19:15"
+    };
+
+    let sudahDibunyikan = {};
+
+    function cekWaktuSholat() {
+      const now = new Date();
+      const jam = now.getHours().toString().padStart(2, '0');
+      const menit = now.getMinutes().toString().padStart(2, '0');
+      const waktu = `${jam}:${menit}`;
+      document.getElementById('now').innerText = `Sekarang: ${waktu}`;
+
+      for (let sholat in jadwal) {
+        if (waktu === jadwal[sholat] && !sudahDibunyikan[sholat]) {
+          document.getElementById('peringatan').innerText = `🕌 Waktunya ${sholat}! Ayo sholat dulu.`;
+          document.getElementById('adzan').play();
+          sudahDibunyikan[sholat] = true;
+        }
+      }
+    }
+
+    setInterval(cekWaktuSholat, 1000);
+  </script>
+
+</body>
+</html>
