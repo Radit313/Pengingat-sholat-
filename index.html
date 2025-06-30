@@ -16,13 +16,13 @@
       background: linear-gradient(to bottom, #0a0a0a, #1a1a1a, #2a0e1e);
       color: #ffffff;
       text-align: center;
-      padding: 60px 20px 160px;
+      padding: 60px 20px 0;
       font-size: 28px;
       position: relative;
       overflow-x: hidden;
     }
 
-    /* 🌟 Efek Bintang */
+    /* Efek bintang halus */
     body::before {
       content: '';
       position: absolute;
@@ -97,7 +97,6 @@
       text-shadow: 0 0 10px #ffa0d2;
     }
 
-    /* 🌙 Hiasan bawah */
     .hiasan {
       position: absolute;
       bottom: 0;
@@ -109,7 +108,8 @@
     .hiasan svg {
       display: block;
       width: 100%;
-      height: auto;
+      height: 160px;
+      margin-top: -5px; /* menghilangkan garis pemisah */
     }
   </style>
 </head>
@@ -131,7 +131,7 @@
 
   <audio id="adzan" src="suara_adzan.mp3"></audio>
 
-  <!-- 🌙 Hiasan Masjid + Bulan Sabit -->
+  <!-- Hiasan SVG Masjid -->
   <div class="hiasan">
     <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
       <path fill="#1c1c1c" fill-opacity="1" d="M0,160L40,170C80,180,160,200,240,202.7C320,205,400,187,480,181.3C560,176,640,192,720,213.3C800,235,880,261,960,266.7C1040,272,1120,256,1200,229.3C1280,203,1360,165,1400,144L1440,123L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
