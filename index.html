@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <title>Pengingat Waktu Sholat</title>
@@ -8,89 +9,82 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to right, #0f0f0f, #1a1a1a);
-  color: #ffffff;
-  text-align: center;
-  padding: 60px 20px;
-  font-size: 28px;
-  transition: background 1s ease;
-}
+    }
 
-body.adzan-aktif {
-  background: radial-gradient(circle, #ffe600, #ff9900);
-}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #0f0f0f, #1a1a1a);
+      color: #ffffff;
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 28px;
+    }
 
-h1 {
-  font-size: 58px;
-  margin-bottom: 50px;
-  color: #00ffcc;
-  text-shadow: 0 0 15px #00ffe0;
-}
+    h1 {
+      font-size: 58px;
+      margin-bottom: 50px;
+      color: #00ffcc;
+      text-shadow: 0 0 15px #00ffe0;
+    }
 
-.jadwal {
-  background: linear-gradient(145deg, #1e1e1e, #292929);
-  padding: 40px;
-  border-radius: 20px;
-  display: inline-block;
-  font-size: 30px;
-  min-width: 420px;
-  box-shadow: 0 0 30px rgba(0, 255, 200, 0.3);
-  transition: transform 0.3s ease;
-}
+    .jadwal {
+      background: linear-gradient(145deg, #1e1e1e, #292929);
+      padding: 40px;
+      border-radius: 20px;
+      display: inline-block;
+      font-size: 30px;
+      min-width: 420px;
+      box-shadow: 0 0 30px rgba(0, 255, 200, 0.3);
+      transition: transform 0.3s ease;
+    }
 
-.jadwal:hover {
-  transform: scale(1.03);
-}
+    .jadwal:hover {
+      transform: scale(1.03);
+    }
 
-h2 {
-  color: #ff79c6;
-  font-size: 40px;
-  margin-bottom: 25px;
-  text-shadow: 0 0 8px #ff79c6;
-}
+    h2 {
+      color: #ff79c6;
+      font-size: 40px;
+      margin-bottom: 25px;
+      text-shadow: 0 0 8px #ff79c6;
+    }
 
-.jadwal p {
-  margin: 10px 0;
-}
+    .jadwal p {
+      margin: 10px 0;
+    }
 
-h3#now {
-  font-size: 42px;
-  margin-top: 60px;
-  color: #00ffff;
-  text-shadow: 0 0 10px #00ffff;
-}
+    h3#now {
+      font-size: 42px;
+      margin-top: 60px;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+    }
 
-h2#peringatan {
-  margin-top: 30px;
-  font-size: 38px;
-  color: #ffe600;
-  text-shadow: 0 0 10px #ffe600;
-  animation: blink 1s infinite alternate;
-  display: none;
-}
-
-h2#peringatan.show {
-  display: block;
-}
-
-@keyframes blink {
-  from { opacity: 1; }
-  to { opacity: 0.3; }
-}
-
+    h2#peringatan {
+      margin-top: 30px;
+      font-size: 38px;
+      color: #ffe600;
+      text-shadow: 0 0 10px #ffe600;
+    }
   </style>
 </head>
-<body>  <h1>🕌 Pengingat Waktu Sholat</h1>  <div class="jadwal">
+<body>
+
+  <h1>🕌 Pengingat Waktu Sholat</h1>
+
+  <div class="jadwal">
     <h2>Jadwal Sholat</h2>
     <p>Subuh: 04:40</p>
     <p>Dzuhur: 11:57</p>
     <p>Ashar: 15:17</p>
     <p>Maghrib: 17:53</p>
     <p>Isya: 19:02</p>
-  </div>  <h3 id="now">Sekarang: --:--</h3>
-  <h2 id="peringatan">🕌 Waktunya Sholat!</h2><audio id="adzan" src="suara_adzan.mp3"></audio>
+  </div>
+
+  <h3 id="now">Sekarang: --:--</h3>
+  <h2 id="peringatan">Menunggu waktu sholat...</h2>
+
+  <audio id="adzan" src="suara_adzan.mp3"></audio>
 
   <script>
     const jadwal = {
@@ -103,27 +97,6 @@ h2#peringatan.show {
 
     let sudahDibunyikan = {};
 
-    function resetEfekAdzan() {
-      document.body.classList.remove('adzan-aktif');
-      document.getElementById('peringatan').classList.remove('show');
-    }
-
-    function gantiBackgroundWaktu(jam, menit) {
-      const waktu = parseInt(jam + menit);
-
-      if (waktu < 500) {
-        document.body.style.background = "linear-gradient(to top, #001219, #005f73)";
-      } else if (waktu < 1200) {
-        document.body.style.background = "linear-gradient(to right, #219ebc, #8ecae6)";
-      } else if (waktu < 1530) {
-        document.body.style.background = "linear-gradient(to right, #ffb703, #fb8500)";
-      } else if (waktu < 1800) {
-        document.body.style.background = "linear-gradient(to right, #ff6d00, #b30000)";
-      } else {
-        document.body.style.background = "radial-gradient(circle, #000814, #001d3d)";
-      }
-    }
-
     function cekWaktuSholat() {
       const now = new Date();
       const jam = now.getHours().toString().padStart(2, '0');
@@ -131,14 +104,17 @@ h2#peringatan.show {
       const waktu = `${jam}:${menit}`;
       document.getElementById('now').innerText = `Sekarang: ${waktu}`;
 
-      gantiBackgroundWaktu(jam, menit);
-
       for (let sholat in jadwal) {
         if (waktu === jadwal[sholat] && !sudahDibunyikan[sholat]) {
-          document.body.classList.add('adzan-aktif');
           document.getElementById('peringatan').innerText = `🕌 Waktunya ${sholat}! Ayo sholat dulu.`;
-          document.getElementById('peringatan').classList.add('show');
           document.getElementById('adzan').play();
           sudahDibunyikan[sholat] = true;
+        }
+      }
+    }
 
-          setTimeout(resetEfekAdzan,
+    setInterval(cekWaktuSholat, 1000);
+  </script>
+
+</body>
+</html>
