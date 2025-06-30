@@ -10,23 +10,45 @@
       color: #fff;
       text-align: center;
       padding: 50px;
+      font-size: 22px;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 30px;
     }
 
     .jadwal {
       background: #1e1e1e;
-      padding: 20px;
-      border-radius: 12px;
+      padding: 30px;
+      border-radius: 20px;
       display: inline-block;
+      font-size: 24px;
+      min-width: 300px;
     }
 
     h2 {
       color: pink;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    h3#now {
+      font-size: 26px;
+      margin-top: 40px;
+    }
+
+    h2#peringatan {
+      margin-top: 20px;
+      font-size: 28px;
+      color: #ff0;
     }
   </style>
 </head>
 <body>
 
   <h1>🕌 Pengingat Waktu Sholat</h1>
+
   <div class="jadwal">
     <h2>Jadwal Sholat</h2>
     <p>Subuh: 04:40</p>
@@ -39,17 +61,15 @@
   <h3 id="now">Sekarang: --:--</h3>
   <h2 id="peringatan">Menunggu waktu sholat...</h2>
 
-  <!-- Suara Adzan -->
   <audio id="adzan" src="suara_adzan.mp3"></audio>
 
   <script>
-    // Jadwal manual (bisa disesuaikan)
     const jadwal = {
-      "Subuh": "04:30",
-      "Dzuhur": "12:00",
-      "Ashar": "15:30",
-      "Maghrib": "18:00",
-      "Isya": "19:15"
+      "Subuh": "04:40",
+      "Dzuhur": "11:57",
+      "Ashar": "15:17",
+      "Maghrib": "17:53",
+      "Isya": "19:02"
     };
 
     let sudahDibunyikan = {};
