@@ -12,50 +12,31 @@
     }
 
     body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #1a001a);
-  color: #ffffff;
-  text-align: center;
-  padding: 60px 20px;
-  font-size: 28px;
-  position: relative;
-  overflow: hidden;
-}
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      color: #4b004b;
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 28px;
+    }
 
-/* Bintang kecil animasi */
-body::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-image: radial-gradient(#ffb6d9 1px, transparent 1px);
-  background-size: 50px 50px;
-  animation: sparkle 60s linear infinite;
-  opacity: 0.2;
-  z-index: 0;
-}
-
-@keyframes sparkle {
-  0% { background-position: 0 0; }
-  100% { background-position: 1000px 1000px; }
-}
-
-/* Biar konten tetap di atas */
-h1, .jadwal, #now, #peringatan {
-  position: relative;
-  z-index: 1;
-}
+    h1 {
+      font-size: 58px;
+      margin-bottom: 50px;
+      color: #ff69b4;
+      text-shadow: 0 0 15px #ffc0cb;
+    }
 
     .jadwal {
-      background: linear-gradient(145deg, #2b1b2f, #3e2b3d);
+      background: linear-gradient(145deg, #ffe6f0, #ffd1e3);
       padding: 40px;
       border-radius: 25px;
       display: inline-block;
       font-size: 30px;
       min-width: 420px;
-      box-shadow: 0 0 35px rgba(255, 105, 180, 0.3);
+      box-shadow: 0 0 30px rgba(255, 192, 203, 0.5);
       transition: transform 0.3s ease;
-      color: #ffe0f0;
+      color: #800040;
     }
 
     .jadwal:hover {
@@ -63,10 +44,10 @@ h1, .jadwal, #now, #peringatan {
     }
 
     h2 {
-      color: #ff99cc;
+      color: #e75480;
       font-size: 40px;
       margin-bottom: 25px;
-      text-shadow: 0 0 8px #ffb6d9;
+      text-shadow: 0 0 8px #ffb6c1;
     }
 
     .jadwal p {
@@ -76,15 +57,15 @@ h1, .jadwal, #now, #peringatan {
     h3#now {
       font-size: 42px;
       margin-top: 60px;
-      color: #ffccf9;
-      text-shadow: 0 0 10px #ffc4ec;
+      color: #ff6eb4;
+      text-shadow: 0 0 10px #ffbde0;
     }
 
     h2#peringatan {
       margin-top: 30px;
       font-size: 38px;
-      color: #ffb3da;
-      text-shadow: 0 0 10px #ffa0d2;
+      color: #ff85a2;
+      text-shadow: 0 0 10px #ffe0f0;
     }
   </style>
 </head>
